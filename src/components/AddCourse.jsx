@@ -50,7 +50,7 @@ const AddCourse = () => {
 
   const deleteCourse = (id) => {
     axios
-      .delete(`https://simple-mern-crud-app.herokuapp.com/${id}`)
+      .delete(`https://simple-mern-crud-app.herokuapp.com/delete/${id}`)
       .then(() => {
         setCourseList(
           courseList.filter((item) => {

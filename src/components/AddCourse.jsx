@@ -8,7 +8,7 @@ const AddCourse = () => {
 
   const addCourse = () => {
     axios
-      .post('http://localhost:5000/add-course', {
+      .post('https://simple-mern-crud-app.herokuapp.com/add-course', {
         courseName,
         authorName,
       })
@@ -26,7 +26,10 @@ const AddCourse = () => {
   const updatedCourse = (id) => {
     const newCourseName = prompt('Enter new course name:');
     axios
-      .put('http://localhost:5000/update', { newCourseName, id })
+      .put('https://simple-mern-crud-app.herokuapp.com/update', {
+        newCourseName,
+        id,
+      })
       .then(() => {
         setCourseList(
           courseList.map((item) => {
@@ -47,7 +50,7 @@ const AddCourse = () => {
 
   const deleteCourse = (id) => {
     axios
-      .delete(`http://localhost:5000/delete/${id}`)
+      .delete(`https://simple-mern-crud-app.herokuapp.com/${id}`)
       .then(() => {
         setCourseList(
           courseList.filter((item) => {
@@ -62,7 +65,7 @@ const AddCourse = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/read')
+      .get('https://simple-mern-crud-app.herokuapp.com/read')
       .then((res) => {
         setCourseList(res.data);
       })
